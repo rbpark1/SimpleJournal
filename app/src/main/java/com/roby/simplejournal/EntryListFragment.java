@@ -30,6 +30,12 @@ public class EntryListFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onResume(){
+        super.onResume();
+        updateUI();
+    }
+
     private void updateUI() {
         EntryLab entryLab = EntryLab.get(getActivity());
         List<Entry> entries = entryLab.getEntries();

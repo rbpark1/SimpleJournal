@@ -20,6 +20,7 @@ public class EntryFragment extends Fragment{
 
     private Entry mEntry;
     private EditText mTitleField;
+    private EditText mTextField;
 
     public static EntryFragment newInstance(UUID entryId){
         Bundle args = new Bundle();
@@ -57,6 +58,25 @@ public class EntryFragment extends Fragment{
             @Override
             public void afterTextChanged(Editable s) {
                 //do nothing
+            }
+        });
+
+        mTextField = (EditText) v.findViewById(R.id.bodyEditText);
+        mTextField.setText(mEntry.getText());
+        mTextField.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                mEntry.setText(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
             }
         });
 

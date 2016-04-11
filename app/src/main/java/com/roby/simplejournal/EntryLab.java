@@ -38,10 +38,10 @@ public class EntryLab {
 
     public Entry getEntry(UUID id){
         for(Entry entry: mEntries){
-            if(entry.getId()==id){
+            if(entry.getId().compareTo(id)==0){
                 return entry;
             }
         }
-        return new Entry();
+        return null;
     }
 }
